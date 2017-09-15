@@ -12,6 +12,9 @@ _A website that can find a nearby doctor who can treat your medical issue._
 
 * _Clone repository_
 * _Get an API key by creating an account at [BetterDoctor](https://developer.betterdoctor.com/)_
+* _Create a file called .env in the top level of this directory._
+* _.env should contain this line_
+> exports.apiKey = "insertYourApiKey";
 
 ## Technologies Used
 * _Javascript_
