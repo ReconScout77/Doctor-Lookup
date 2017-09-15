@@ -20,7 +20,7 @@ $(function() {
     let promise = new Promise(function(resolve, reject) {
 
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?${nameQuery}${medicalIssueQuery}location=or-portland&user_location=45.543066%2C-122.9346037&skip=0&limit=20&user_key=${apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?${nameQuery}${medicalIssueQuery}location=or-portland&user_location=45.543066%2C-122.9346037&skip=0&limit=100&user_key=${apiKey}`;
 
       request.onload = function() {
         if (this.status === 200) {
@@ -48,6 +48,8 @@ $(function() {
           let website = body.data[i].practices[0].website;
           if (body.data[i].practices[0].website === undefined) {
             website = "N/A";
+          } else {
+            website = `<a href="${body.data[i].practices[0].website}">${body.data[i].practices[0].website}</a>`;
           }
 
           let yn;
