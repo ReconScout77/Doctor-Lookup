@@ -40,7 +40,16 @@ $(function() {
 
       if (body.meta.count > 0) {
         for(let i = 0; i < body.meta.count; i++) {
-          $('#results').append(`<p>Name: ${body.data[i].practices[0].name}</p>`);
+          let title = `, ${body.data[i].profile.title}`;
+          if (body.data[i].profile.title === undefined) {
+            title = "";
+          }
+
+          let website = body.data[i].practices[0].website;
+          if (body.data[i].practices[0].website === undefined) {
+            website = "N/A";
+          }
+          $('#results').append(`<p>Name: ${body.data[i].profile.first_name} ${body.data[i].profile.last_name}${title} Address: ${body.data[i].practices[0].visit_address.street}, ${body.data[i].practices[0].visit_address.city}, ${body.data[i].practices[0].visit_address.state_long}, ${body.data[i].practices[0].visit_address.zip} Phone: ${body.data[i].practices[0].phones[0].number} Website: ${website} Accepts new patients? ${body.data[i].practices[0].accepts_new_patients}</p>`);
         }
       } else {
         $('#results').text("No results found.")
