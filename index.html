@@ -1,6 +1,5 @@
 <html>
 <head>
-  <!--<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
   <link rel="stylesheet" href="build/css/vendor.css">
   <script src="build/js/vendor.min.js"></script>
   <script type="text/javascript" src="build/js/app.js"></script>
@@ -19,12 +18,28 @@
 
       <label for="medical-issue">Medical issue:</label>
       <input type="text" id="medical-issue" class="form-control">
-      <button type="submit">Submit</button>
+
+      <button type="submit" class="btn btn-info">Submit</button>
     </form>
 
-    <div id="results">
-
+    <div id="no-results">
     </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Accepting New Patients</th>
+        </tr>
+      </thead>
+      <tbody id="results">
+      </tbody>
+    </table>
+
   </div>
 </body>
 </html>

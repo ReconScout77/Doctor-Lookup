@@ -49,7 +49,14 @@ $(function() {
           if (body.data[i].practices[0].website === undefined) {
             website = "N/A";
           }
-          $('#results').append(`<p>Name: ${body.data[i].profile.first_name} ${body.data[i].profile.last_name}${title} Address: ${body.data[i].practices[0].visit_address.street}, ${body.data[i].practices[0].visit_address.city}, ${body.data[i].practices[0].visit_address.state_long}, ${body.data[i].practices[0].visit_address.zip} Phone: ${body.data[i].practices[0].phones[0].number} Website: ${website} Accepts new patients? ${body.data[i].practices[0].accepts_new_patients}</p>`);
+
+          let yn;
+          if(body.data[i].practices[0].accepts_new_patients) {
+            yn = "yes";
+          } else {
+            yn = "no";
+          }
+          $('#results').append(`<tr><td><img src="${body.data[i].profile.image_url}"</td><td>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}${title}</td><td>${body.data[i].practices[0].visit_address.street} <br> ${body.data[i].practices[0].visit_address.city}, ${body.data[i].practices[0].visit_address.state_long} <br> ${body.data[i].practices[0].visit_address.zip}</td><td>${body.data[i].practices[0].phones[0].number}</td><td>${website}</td><td>${yn}</td></tr>`);
         }
       } else {
         $('#results').text("No results found.")
